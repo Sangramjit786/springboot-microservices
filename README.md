@@ -44,3 +44,44 @@ This project showcases a microservices architecture using Spring Boot and Spring
    ```bash
    git clone [https://github.com/Sangramjit786/springboot-microservices.git](https://github.com/Sangramjit786/springboot-microservices.git)
    cd springboot-microservices
+  ```
+
+2. **Start the services**:
+```bash
+# Start Eureka Server
+mvn spring-boot:run -pl service-registry
+
+# Start Config Server
+mvn spring-boot:run -pl config-server
+
+# Start other services
+mvn spring-boot:run -pl department-service
+mvn spring-boot:run -pl employee-service
+mvn spring-boot:run -pl organization-service
+mvn spring-boot:run -pl api-gateway
+```
+
+Access the applications:
+Eureka Dashboard: http://localhost:8761
+API Gateway: http://localhost:9191
+Swagger UI: http://localhost:8080/swagger-ui.html (for each service)
+Technical Implementation Details
+1. Service Discovery with Eureka
+Dynamic registration and discovery of microservices
+Heartbeat mechanism for service health monitoring
+2. API Gateway
+Dynamic routing configuration
+Request/Response transformation
+Cross-cutting concerns (Authentication, Logging)
+3. Centralized Configuration
+Git-based configuration management
+Profile-specific properties
+Auto-refresh with Spring Cloud Bus and RabbitMQ
+4. Resilience Patterns
+Circuit breaking with Resilience4j
+Retry mechanisms for transient failures
+Bulkhead pattern for resource isolation
+5. Observability
+Distributed tracing with Micrometer and Zipkin
+Health check endpoints
+Metrics collection and monitoring
