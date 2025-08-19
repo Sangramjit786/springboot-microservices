@@ -5,6 +5,8 @@ This repository ([springboot-microservices](https://github.com/Sangramjit786/spr
 It covers essential patterns such as service discovery, API gateway, centralized configuration, inter-service communication, resilience patterns, distributed tracing, and frontend integration.  
 
 ---
+## Project Architecture:
+<img width="1620" height="725" alt="image" src="https://github.com/user-attachments/assets/6ec8170e-d108-4173-932f-5f4386133c2f" />
 
 ## Project Overview
 
