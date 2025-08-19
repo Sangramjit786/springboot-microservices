@@ -46,6 +46,7 @@ This project showcases a microservices architecture using Spring Boot and Spring
    cd springboot-microservices
      ```
 
+
 2. **Start the services**:
 ```bash
 # Start Eureka Server
