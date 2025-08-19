@@ -1,10 +1,126 @@
 # Spring Boot Microservices Architecture
 
 A comprehensive microservices-based application demonstrating various Spring Cloud features and best practices.
+This repository ([springboot-microservices](https://github.com/Sangramjit786/springboot-microservices.git)) demonstrates the development of a **microservices-based architecture** using **Spring Boot** and the **Spring Cloud ecosystem**.  
+It covers essential patterns such as service discovery, API gateway, centralized configuration, inter-service communication, resilience patterns, distributed tracing, and frontend integration.  
+
+---
 
 ## Project Overview
 
 This project showcases a microservices architecture using Spring Boot and Spring Cloud, featuring independent, scalable services that communicate with each other to provide a complete organizational management solution.
+The system consists of multiple microservices:
+
+- **department-service** – Manages department-related operations.
+- **employee-service** – Manages employee-related operations and communicates with department-service and organization-service.
+- **organization-service** – Represents the organizational structure by integrating employee and department data.
+- **api-gateway** – A unified entry point for all services.
+- **config-server** – Centralized configuration management using GitHub.
+- **react-frontend** – A frontend UI to interact with the API Gateway.
+
+---
+
+## Key Features and Implementations
+
+### 1. Initial Commit for Two Microservices
+- Created **department-service** and **employee-service** as independent Spring Boot microservices.  
+- Each service has **its own database** and isolated responsibilities following **microservices architecture principles**.
+
+### 2. Global Exception Handling
+- Implemented **centralized exception handling** with `@ControllerAdvice` and `@ExceptionHandler`.  
+- Ensures **consistent error responses** across services and cleaner controller code.
+
+### 3. Synchronous Communication Using RestTemplate
+- Integrated **inter-service communication** between employee-service and department-service using `RestTemplate`.  
+- This provided a starting point, though it is considered a **legacy approach** in Spring.
+
+### 4. Migration from RestTemplate to WebClient
+- Replaced `RestTemplate` with **WebClient** (reactive, non-blocking, Spring 5+).  
+- Improved **scalability** and **efficiency** in synchronous communications.
+
+### 5. Inter-Service Communication with Spring Cloud OpenFeign
+- Adopted **OpenFeign**, a declarative REST client.  
+- Reduced boilerplate code for HTTP calls and improved **readability** and **maintainability**.
+
+### 6. Service Discovery with Eureka
+- Set up a **Eureka Server** for dynamic service discovery.  
+- Registered employee-service and department-service as **Eureka clients**, removing the need for hardcoded URLs.
+
+### 7. Load Balancing with Spring Cloud LoadBalancer
+- Implemented **client-side load balancing** with OpenFeign and Spring Cloud LoadBalancer.  
+- Requests are evenly distributed across multiple service instances, ensuring **high availability**.
+
+### 8. API Gateway Configuration
+- Built an **API Gateway** microservice using Spring Cloud Gateway.  
+- Registered it with Eureka and configured manual routes for department-service and employee-service.  
+- Verified end-to-end flow using **Postman**.
+
+### 9. Dynamic Routing in API Gateway
+- Configured **dynamic routing** in the API Gateway via Eureka.  
+- New services are automatically registered without updating gateway routes manually.
+
+### 10. Config Server Setup
+- Created a **config-server** using Spring Cloud Config.  
+- Linked it to a **GitHub repository** to manage externalized configurations.  
+- Registered config-server with Eureka.
+
+### 11. Department-Service Integration with Config Server
+- Externalized `application.properties` of department-service to the config repository.  
+- Achieved **centralized configuration management**.
+
+### 12. Employee-Service Integration with Config Server
+- Applied the same externalization for employee-service.  
+- Ensured consistency and **easy updates** via GitHub-managed configuration.
+
+### 13. Auto-Refresh Configuration Using Spring Cloud Bus
+- Enabled **real-time config updates** with Spring Cloud Bus and **RabbitMQ in Docker**.  
+- Eliminated the need for manual `/actuator/refresh` calls.
+
+### 14. Distributed Tracing with Micrometer
+- Integrated **Micrometer** to collect metrics and traces.  
+- Enabled better **monitoring**, **debugging**, and **performance analysis** in a distributed environment.
+
+### 15. Circuit Breaker with Resilience4j
+- Implemented **circuit breaker** patterns using Resilience4j.  
+- Prevented cascading failures by **short-circuiting calls** to unresponsive services.
+
+### 16. Retry Mechanism with Resilience4j
+- Configured **retry logic** for transient failures.  
+- Automatically retries failed calls before giving up, improving **fault tolerance**.
+
+### 17. Organization-Service Creation
+- Introduced **organization-service** to aggregate employee and department data.  
+- Strengthened the domain model with an **organizational perspective**.
+
+### 18. Communication between Employee and Organization Services
+- Established **WebClient-based communication** from employee-service to organization-service.  
+- Followed **non-blocking I/O practices**.
+
+### 19. Externalizing Organization-Service Configurations
+- Externalized organization-service configurations into the config repository.  
+- Ensured a **unified and version-controlled configuration** across all services.
+
+### 20. React Frontend Integration
+- Developed a **React frontend** integrated with the API Gateway.  
+- Displayed **consolidated data** (user, department, organization) via unified endpoints.
+
+### 21. API Documentation with SpringDoc OpenAPI
+- Integrated **SpringDoc OpenAPI** in all services.  
+- Provided **Swagger UI** for API documentation, simplifying **API exploration** and **testing**.
+
+---
+
+## Tech Stack
+
+- **Backend**: Spring Boot, Spring Cloud (Eureka, Config, Gateway, LoadBalancer, OpenFeign, WebClient)  
+- **Resilience**: Resilience4j (Circuit Breaker, Retry)  
+- **Message Broker**: RabbitMQ (via Docker)  
+- **Tracing & Metrics**: Micrometer  
+- **Frontend**: React  
+- **Config Management**: GitHub-based Config Server  
+- **API Documentation**: SpringDoc OpenAPI (Swagger UI)  
+
+---
 
 ## Key Features
 
