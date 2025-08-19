@@ -91,3 +91,22 @@ mvn spring-boot:run -pl api-gateway
 - Distributed tracing with Micrometer and Zipkin
 - Health check endpoints
 - Metrics collection and monitoring
+
+### Project Structure
+```
+springboot-microservices/
+├── api-gateway/          # API Gateway service
+├── config-server/        # Configuration server
+├── department-service/   # Department microservice
+├── employee-service/     # Employee microservice
+├── organization-service/ # Organization microservice
+├── service-registry/     # Eureka server
+└── react-frontend/       # React-based UI
+```
+
+### API Documentation
+Each service exposes its API documentation through Swagger UI:
+- Department Service: http://localhost:8080/swagger-ui.html
+- Employee Service: http://localhost:8082/swagger-ui.html
+- Organization Service: http://localhost:8083/swagger-ui.html
+
