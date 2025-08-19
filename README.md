@@ -32,6 +32,9 @@ The system consists of multiple microservices:
 - Implemented **centralized exception handling** with `@ControllerAdvice` and `@ExceptionHandler`.  
 - Ensures **consistent error responses** across services and cleaner controller code.
 
+### Different Synchronous ways of inter-service communication:
+<img width="992" height="457" alt="image" src="https://github.com/user-attachments/assets/838723ce-4f7e-4788-92e4-f3b9168921b0" />
+
 ### 3. Synchronous Communication Using RestTemplate
 - Integrated **inter-service communication** between employee-service and department-service using `RestTemplate`.  
 - This provided a starting point, though it is considered a **legacy approach** in Spring.
