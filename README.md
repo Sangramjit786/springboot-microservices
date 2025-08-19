@@ -47,6 +47,9 @@ The system consists of multiple microservices:
 - Adopted **OpenFeign**, a declarative REST client.  
 - Reduced boilerplate code for HTTP calls and improved **readability** and **maintainability**.
 
+### Service Discovery Architecture:
+<img width="907" height="463" alt="image" src="https://github.com/user-attachments/assets/b7c6fcd1-c8cc-41ea-9fb7-81ca6893b709" />
+
 ### 6. Service Discovery with Eureka
 - Set up a **Eureka Server** for dynamic service discovery.  
 - Registered employee-service and department-service as **Eureka clients**, removing the need for hardcoded URLs.
@@ -54,6 +57,9 @@ The system consists of multiple microservices:
 ### 7. Load Balancing with Spring Cloud LoadBalancer
 - Implemented **client-side load balancing** with OpenFeign and Spring Cloud LoadBalancer.  
 - Requests are evenly distributed across multiple service instances, ensuring **high availability**.
+
+### API Gateway Architecture:
+<img width="1914" height="966" alt="Screenshot 2025-08-19 070908" src="https://github.com/user-attachments/assets/3abe1bc9-8931-4de1-a532-386cc7d9d4b7" />
 
 ### 8. API Gateway Configuration
 - Built an **API Gateway** microservice using Spring Cloud Gateway.  
@@ -63,6 +69,9 @@ The system consists of multiple microservices:
 ### 9. Dynamic Routing in API Gateway
 - Configured **dynamic routing** in the API Gateway via Eureka.  
 - New services are automatically registered without updating gateway routes manually.
+
+### Config Server Flow:
+<img width="996" height="503" alt="Screenshot 2025-08-19 071026" src="https://github.com/user-attachments/assets/7731fe76-e201-456f-88f0-510162d4beca" />
 
 ### 10. Config Server Setup
 - Created a **config-server** using Spring Cloud Config.  
@@ -81,9 +90,18 @@ The system consists of multiple microservices:
 - Enabled **real-time config updates** with Spring Cloud Bus and **RabbitMQ in Docker**.  
 - Eliminated the need for manual `/actuator/refresh` calls.
 
+### Distributed Tracing Flow:
+<img width="922" height="410" alt="image" src="https://github.com/user-attachments/assets/4ea89187-3889-44e4-b8fa-f93acc911931" />
+
+### Distributed Tracing Implementation:
+<img width="938" height="493" alt="image" src="https://github.com/user-attachments/assets/9c5bb33e-c1c3-4c86-bfd6-127d801211fe" />
+
 ### 14. Distributed Tracing with Micrometer
 - Integrated **Micrometer** to collect metrics and traces.  
 - Enabled better **monitoring**, **debugging**, and **performance analysis** in a distributed environment.
+
+### Circuit Breaker Pattern Implementation:
+<img width="912" height="427" alt="image" src="https://github.com/user-attachments/assets/0e44c545-2569-4b4f-a535-04edd6eed22a" />
 
 ### 15. Circuit Breaker with Resilience4j
 - Implemented **circuit breaker** patterns using Resilience4j.  
